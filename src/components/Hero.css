@@ -1,0 +1,104 @@
+/* Hero — fills most of the first screen, asymmetric two-column on desktop:
+   the intro on the left, the build.log changelog as a margin-note on the right. */
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - var(--nav-height));
+  padding-block: var(--space-8);
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+}
+
+/* --- intro column --- */
+.hero__log {
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+.hero__name {
+  font-size: var(--text-h1);
+  letter-spacing: -0.02em;
+}
+
+.hero__role {
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: var(--color-ink-muted);
+}
+
+.hero__hook {
+  max-width: 50ch;
+  margin-top: var(--space-3);
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+/* --- build.log card (signature) --- */
+.hero__log-card {
+  padding: var(--space-3);
+  background-color: var(--color-paper-raised);
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  /* subtle stagger after the intro; neutralised under reduced-motion */
+  transition-delay: 120ms;
+}
+
+.hero__log-card-title {
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-2);
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.hero__entries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--color-ink);
+}
+
+.hero__entries li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.hero__day {
+  min-width: 4.5rem;
+  color: var(--color-ink-muted);
+  white-space: nowrap;
+}
+
+.hero__day--bonus {
+  color: var(--color-accent);
+}
+
+.hero__what {
+  flex: 1;
+}
+
+.hero__check {
+  color: var(--color-accent);
+}
