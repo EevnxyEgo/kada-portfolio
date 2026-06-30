@@ -1,0 +1,294 @@
+/* ============================================================
+   THE BUILD LOG — global styles & design tokens
+   Two fonts only: Space Grotesk (display/body), JetBrains Mono (meta).
+   Depth comes from 1px hairlines, never shadows.
+   ============================================================ */
+
+:root {
+  /* --- color: warm paper + ink + one terracotta accent --- */
+  --color-paper: #f6f2ea; /* page background — warm off-white */
+  --color-paper-raised: #fbf9f4; /* lighter, for section alternation */
+  --color-ink: #1f1b16; /* primary text */
+  --color-ink-muted: #6b6258; /* secondary text, captions, metadata */
+  --color-accent: #c2542c; /* terracotta — links, highlights, active */
+  --color-accent-soft: #efdfd0; /* accent tint, used sparingly */
+  --color-line: #ddd4c5; /* hairline borders — the primary depth cue */
+
+  /* --- type --- */
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* fluid type scale — clamp(min, fluid, max) */
+  --text-h1: clamp(2.5rem, 6vw, 4.5rem);
+  --text-h2: clamp(1.75rem, 4vw, 2.75rem);
+  --text-h3: clamp(1.25rem, 2.2vw, 1.5rem);
+  --text-body: clamp(1rem, 1.2vw, 1.0625rem);
+  --text-meta: 0.8125rem;
+
+  /* --- spacing scale (base unit 8px) --- */
+  --space-1: 0.5rem; /* 8  */
+  --space-2: 1rem; /* 16 */
+  --space-3: 1.5rem; /* 24 */
+  --space-4: 2rem; /* 32 */
+  --space-6: 3rem; /* 48 */
+  --space-8: 4rem; /* 64 */
+  --space-12: 6rem; /* 96 */
+  --space-16: 8rem; /* 128 */
+
+  /* --- layout --- */
+  --max-width: 1120px;
+  --page-gutter: 1.5rem; /* side padding on mobile */
+  --nav-height: 4rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-gutter: 3rem; /* roomier side padding on desktop */
+  }
+}
+
+/* ---------- resets ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- shared utilities ---------- */
+
+/* centered content column with responsive side padding */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+/* every <section> shares vertical rhythm + an anchor scroll offset
+   so the sticky nav never covers a heading when you jump to it */
+.section {
+  padding-block: var(--space-12);
+  scroll-margin-top: var(--nav-height);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-16);
+  }
+}
+
+/* alternating section tint for gentle rhythm without borders everywhere */
+.section--raised {
+  background-color: var(--color-paper-raised);
+  border-block: 1px solid var(--color-line);
+}
+
+/* monospace eyebrow label — the "log metadata" voice */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* section heading block: a mono eyebrow over a big H2 */
+.section-head {
+  margin-bottom: var(--space-6);
+}
+
+.section-head__eyebrow {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-accent);
+}
+
+.section-head__title {
+  font-size: var(--text-h2);
+}
+
+/* text/underline link — the underline draws in from the left on hover */
+.link-underline {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  padding-bottom: 2px;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms ease-out;
+}
+
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* outline button — near-sharp corners, mono label; fills accent on hover */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--color-ink);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+  background-color: transparent;
+  transition: background-color 200ms ease, color 200ms ease,
+    border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.btn:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-paper);
+  /* a subtle shadow is allowed ONLY as a hover state, never at rest */
+  box-shadow: 0 6px 18px -10px rgba(31, 27, 22, 0.5);
+}
+
+/* ---------- accessibility ---------- */
+
+/* visible focus ring on every interactive element */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* skip link — first tab stop, hidden until focused */
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: -100px;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  border-radius: 2px;
+  transition: top 150ms ease;
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+/* screen-reader-only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+::selection {
+  background-color: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+/* ---------- scroll-reveal motion ---------- */
+/* Elements tagged .reveal start hidden + nudged down, then animate in
+   when the IntersectionObserver in App.jsx adds .is-visible. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect users who ask for less motion: show everything instantly,
+   no translate, no stagger delay. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms !important;
+  }
+}
