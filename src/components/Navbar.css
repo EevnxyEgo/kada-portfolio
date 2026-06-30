@@ -1,0 +1,160 @@
+/* Sticky top bar. Mobile-first: links collapse into a dropdown panel,
+   then open out into a horizontal row at >=768px. */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.navbar.is-solid {
+  background-color: var(--color-paper);
+  border-bottom-color: var(--color-line);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar__brand {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  transition: color 200ms ease;
+}
+
+.navbar__brand:hover {
+  color: var(--color-accent);
+}
+
+/* --- mobile menu toggle (hidden on desktop) --- */
+.navbar__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.navbar__toggle:hover {
+  border-color: var(--color-ink);
+  color: var(--color-accent);
+}
+
+/* --- nav panel --- */
+/* mobile: a dropdown anchored under the bar, spanning the full width */
+.navbar__nav {
+  display: none;
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background-color: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+  padding: var(--space-2) var(--page-gutter) var(--space-3);
+}
+
+.navbar__nav.is-open {
+  display: block;
+}
+
+.navbar__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.navbar__link {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: 0.02em;
+  color: var(--color-ink-muted);
+  padding-bottom: 2px;
+  transition: color 200ms ease;
+}
+
+/* underline draws in from the left on hover / active */
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms ease-out;
+}
+
+.navbar__link:hover {
+  color: var(--color-ink);
+}
+
+.navbar__link:hover::after,
+.navbar__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.navbar__link.is-active {
+  color: var(--color-accent);
+}
+
+.navbar__link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* résumé call-to-action — a standing accent underline marks it as primary */
+.navbar__cta {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  border-bottom: 1.5px solid var(--color-accent);
+  padding-bottom: 1px;
+  transition: color 200ms ease;
+}
+
+.navbar__cta:hover {
+  color: var(--color-accent);
+}
+
+/* --- desktop: >=768px --- */
+@media (min-width: 768px) {
+  .navbar__toggle {
+    display: none;
+  }
+
+  /* this rule comes after the base `display: none`, so it wins on desktop
+     and the nav is always visible regardless of the mobile is-open flag */
+  .navbar__nav {
+    display: block;
+    position: static;
+    background-color: transparent;
+    border-bottom: 0;
+    padding: 0;
+  }
+
+  .navbar__links {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+  }
+}

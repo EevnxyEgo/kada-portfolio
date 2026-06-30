@@ -131,6 +131,12 @@ button {
   }
 }
 
+/* every anchorable section clears the sticky nav when jumped to,
+   even ones (like the hero) that don't use the .section padding class */
+:where(section[id]) {
+  scroll-margin-top: var(--nav-height);
+}
+
 /* alternating section tint for gentle rhythm without borders everywhere */
 .section--raised {
   background-color: var(--color-paper-raised);
