@@ -1,0 +1,62 @@
+/* Contact — heading beside a terminal-style key/value block. */
+
+.contact__inner {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .contact__inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--space-8);
+  }
+}
+
+.contact__lede {
+  margin-top: var(--space-2);
+  color: var(--color-ink-muted);
+  max-width: 40ch;
+}
+
+.contact__list {
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  background-color: var(--color-paper);
+}
+
+.contact__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-3);
+}
+
+.contact__row:not(:last-child) {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.contact__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 7rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-muted);
+}
+
+.contact__val {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--color-ink);
+}
+
+.contact__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}

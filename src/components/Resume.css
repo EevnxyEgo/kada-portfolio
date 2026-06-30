@@ -1,0 +1,32 @@
+/* Resume — a slim band: prompt + heading on the left, download CTA on the
+   right (stacked on mobile). */
+
+.resume__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .resume__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.resume__title {
+  margin-top: var(--space-1);
+  font-size: var(--text-h2);
+}
+
+.resume__note {
+  margin-top: var(--space-2);
+  color: var(--color-ink-muted);
+  max-width: 44ch;
+}
+
+.resume__btn {
+  flex-shrink: 0;
+}
