@@ -1,0 +1,8 @@
+/* Projects — a single-column stack of log entries (a changelog reads top to
+   bottom, not as a 3-up feature grid). */
+
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

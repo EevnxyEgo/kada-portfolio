@@ -1,0 +1,100 @@
+/* A single project, styled like a changelog entry: a metadata rail on the
+   left (tag + status), the write-up on the right. Edge defined by a hairline,
+   never a resting shadow. */
+
+.card {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+@media (min-width: 768px) {
+  .card {
+    grid-template-columns: 12rem 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* the only shadow on the page, and only on hover — never at rest */
+.card:hover {
+  border-color: var(--color-ink-muted);
+  box-shadow: 0 14px 30px -22px rgba(31, 27, 22, 0.55);
+}
+
+/* --- meta rail --- */
+.card__tag {
+  color: var(--color-accent);
+}
+
+.card__status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--color-ink-muted);
+}
+
+.card__check {
+  color: var(--color-accent);
+}
+
+/* --- body --- */
+.card__title {
+  font-size: var(--text-h3);
+  font-weight: 500;
+}
+
+.card__desc {
+  margin-top: var(--space-2);
+  max-width: 64ch;
+}
+
+.card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--color-ink-muted);
+}
+
+.card__tech-item:not(:last-child)::after {
+  content: '·';
+  margin: 0 var(--space-1);
+  color: var(--color-line);
+}
+
+.card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-line);
+}
+
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card__note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--color-ink-muted);
+}
+
+.card__note--disabled {
+  opacity: 0.7;
+}
