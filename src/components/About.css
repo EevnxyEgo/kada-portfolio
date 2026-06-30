@@ -1,0 +1,37 @@
+/* About — asymmetric: a narrow heading column (sticky on desktop, like a
+   margin note) beside a wider prose column. */
+
+.about__inner {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 16rem) 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .about__aside {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-4));
+  }
+}
+
+.about__eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-accent);
+}
+
+.about__title {
+  font-size: var(--text-h2);
+}
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 60ch;
+}

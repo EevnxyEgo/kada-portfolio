@@ -1,0 +1,24 @@
+/* Skills — a plain inline mono-tag list. No badges, no bars, no icon grid. */
+
+.skills__note {
+  margin-bottom: var(--space-3);
+  color: var(--color-ink-muted);
+  max-width: 50ch;
+}
+
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  color: var(--color-ink);
+}
+
+/* middle-dot dividers between tags, drawn with a pseudo-element so the data
+   stays a clean flat array */
+.skills__item:not(:last-child)::after {
+  content: '·';
+  margin: 0 var(--space-2);
+  color: var(--color-ink-muted);
+}
