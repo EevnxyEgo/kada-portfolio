@@ -1,6 +1,3 @@
-/* Footer — a closing log entry on the left, links on the right, a quiet
-   sign-off rule underneath. */
-
 .footer {
   padding-block: var(--space-6);
   background-color: var(--color-paper-raised);

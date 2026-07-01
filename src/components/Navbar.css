@@ -1,6 +1,3 @@
-/* Sticky top bar. Mobile-first: links collapse into a dropdown panel,
-   then open out into a horizontal row at >=768px. */
-
 .navbar {
   position: sticky;
   top: 0;
@@ -38,7 +35,6 @@
   color: var(--color-accent);
 }
 
-/* --- mobile menu toggle (hidden on desktop) --- */
 .navbar__toggle {
   display: inline-flex;
   align-items: center;
@@ -56,8 +52,6 @@
   color: var(--color-accent);
 }
 
-/* --- nav panel --- */
-/* mobile: a dropdown anchored under the bar, spanning the full width */
 .navbar__nav {
   display: none;
   position: absolute;
@@ -90,7 +84,6 @@
   transition: color 200ms ease;
 }
 
-/* underline draws in from the left on hover / active */
 .navbar__link::after {
   content: '';
   position: absolute;
@@ -121,7 +114,6 @@
   transform: scaleX(1);
 }
 
-/* résumé call-to-action — a standing accent underline marks it as primary */
 .navbar__cta {
   font-family: var(--font-mono);
   font-size: var(--text-meta);
@@ -136,14 +128,11 @@
   color: var(--color-accent);
 }
 
-/* --- desktop: >=768px --- */
 @media (min-width: 768px) {
   .navbar__toggle {
     display: none;
   }
 
-  /* this rule comes after the base `display: none`, so it wins on desktop
-     and the nav is always visible regardless of the mobile is-open flag */
   .navbar__nav {
     display: block;
     position: static;

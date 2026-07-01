@@ -1,6 +1,3 @@
-/* About — asymmetric: a narrow heading column (sticky on desktop, like a
-   margin note) beside a wider prose column. */
-
 .about__inner {
   display: grid;
   gap: var(--space-4);

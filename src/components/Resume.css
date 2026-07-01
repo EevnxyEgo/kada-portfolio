@@ -1,6 +1,3 @@
-/* Resume — a slim band: prompt + heading on the left, download CTA on the
-   right (stacked on mobile). */
-
 .resume__inner {
   display: flex;
   flex-direction: column;

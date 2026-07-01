@@ -1,5 +1,3 @@
-/* Contact — heading beside a terminal-style key/value block. */
-
 .contact__inner {
   display: grid;
   gap: var(--space-6);

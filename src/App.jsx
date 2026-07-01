@@ -8,8 +8,6 @@ import Resume from './components/Resume'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-// Nav links shown in the navbar. Each id matches a <section id> below, so the
-// scroll-spy can light up the right one.
 const navLinks = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
@@ -18,13 +16,8 @@ const navLinks = [
 ]
 
 export default function App() {
-  // The one piece of app-wide state: which section is currently in view.
-  // Lives here (the "brain") and flows down to <Navbar /> as a prop.
   const [activeSection, setActiveSection] = useState('hero')
 
-  // Scroll-spy. The rootMargin squeezes the observer down to a thin band across
-  // the middle of the screen, so a section becomes "active" right as it crosses
-  // the centre line — no scroll-position maths needed.
   useEffect(() => {
     const sections = document.querySelectorAll('main section[id]')
 
@@ -41,8 +34,6 @@ export default function App() {
     return () => spy.disconnect()
   }, [])
 
-  // Scroll-reveal. Each element tagged .reveal fades + lifts into place once it
-  // enters the viewport, then we stop watching it so it stays put.
   useEffect(() => {
     const revealEls = document.querySelectorAll('.reveal')
 

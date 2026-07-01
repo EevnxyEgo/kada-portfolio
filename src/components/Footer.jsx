@@ -34,7 +34,6 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* email + whatsapp repeated from Contact, in a quieter treatment */}
           <div className="footer__secondary">
             <a href="mailto:arseniuswahyu@gmail.com" className="footer__muted">
               arseniuswahyu@gmail.com

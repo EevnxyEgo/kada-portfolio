@@ -15,8 +15,6 @@ export default function Resume() {
           </p>
         </div>
 
-        {/* `download` makes the browser save the file rather than navigate to
-            it. The PDF lives in /public and is served from the site root. */}
         <a href="/resume.pdf" download className="btn resume__btn">
           Download résumé
           <Download size={16} aria-hidden="true" />

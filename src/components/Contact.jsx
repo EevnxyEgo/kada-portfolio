@@ -2,7 +2,7 @@ import { Mail, MessageCircle, ArrowUpRight } from 'lucide-react'
 import './Contact.css'
 
 export default function Contact() {
-  const email = "yourname@gmail.com";
+  const email = "arseniuswahyu@gmail.com";
   const subject = "Portfolio Inquiry";
   const body = "Hi, I saw your portfolio and wanted to reach out regarding...";
   

@@ -1,9 +1,3 @@
-// The three projects, in chronological "build log" order.
-// One object per project — Projects.jsx maps over this array.
-//
-// repoUrl: null  -> render the "Code" link disabled ("repo link coming soon")
-// liveUrl: null  -> no live demo (e.g. a local dev project)
-
 export const projects = [
   {
     id: 'hangman',

@@ -28,38 +28,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* signature element: the sprint as a literal changelog */}
-        <aside className="hero__log-card reveal" aria-label="Sprint changelog">
-          <p className="mono-label hero__log-card-title">build.log</p>
-          <ul className="hero__entries">
-            <li>
-              <span className="hero__day">day 01</span>
-              <span className="hero__what">vanilla js — dom + events</span>
-            </li>
-            <li>
-              <span className="hero__day">day 05</span>
-              <span className="hero__what">hangman shipped</span>
-              <span className="hero__check" aria-hidden="true">✓</span>
-            </li>
-            <li>
-              <span className="hero__day">day 08</span>
-              <span className="hero__what">react — state + props</span>
-            </li>
-            <li>
-              <span className="hero__day">day 12</span>
-              <span className="hero__what">todo list shipped</span>
-              <span className="hero__check" aria-hidden="true">✓</span>
-            </li>
-            <li>
-              <span className="hero__day">day 14</span>
-              <span className="hero__what">sprint complete</span>
-            </li>
-            <li>
-              <span className="hero__day hero__day--bonus">+ bonus</span>
-              <span className="hero__what">reel — stretch build</span>
-              <span className="hero__check" aria-hidden="true">✓</span>
-            </li>
-          </ul>
+        <aside className="hero__portrait reveal" aria-label="Portrait">
+          <img className="avatar" src="/images/avatar.png" alt="Portrait of Arsen" />
         </aside>
       </div>
     </section>
