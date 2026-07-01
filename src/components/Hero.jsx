@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
 
         <aside className="hero__portrait reveal" aria-label="Portrait">
-          <img className="avatar" src="/images/avatar.png" alt="Portrait of Arsen" />
+          <img className="avatar" src="/images/avatar.jpg" alt="Portrait of Arsen" />
         </aside>
       </div>
     </section>
