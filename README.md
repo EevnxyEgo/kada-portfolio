@@ -6,6 +6,8 @@ the receipts are on the page.
 
 Live: _(add your deployed URL here)_
 
+> 🇮🇩 Penjelasan kode **per file** dalam Bahasa Indonesia: [`PANDUAN-KODE.md`](PANDUAN-KODE.md)
+
 ---
 
 ## Table of contents
