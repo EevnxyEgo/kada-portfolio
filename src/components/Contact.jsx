@@ -2,6 +2,11 @@ import { Mail, MessageCircle, ArrowUpRight } from 'lucide-react'
 import './Contact.css'
 
 export default function Contact() {
+  const email = "yourname@gmail.com";
+  const subject = "Portfolio Inquiry";
+  const body = "Hi, I saw your portfolio and wanted to reach out regarding...";
+  
+  const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   return (
     <section
       id="contact"
@@ -26,7 +31,7 @@ export default function Contact() {
               email
             </dt>
             <dd className="contact__val">
-              <a href="mailto:arseniuswahyu@gmail.com" className="link-underline">
+              <a href={mailtoUrl} className="link-underline">
                 arseniuswahyu@gmail.com
               </a>
             </dd>
